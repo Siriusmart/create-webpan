@@ -1,0 +1,11 @@
+{
+    "name": "create-webpan",
+    "version": "0.0.6",
+    "description": "Template package for creating a webpan project.",
+    "license": "AGPL-3.0-only",
+    "author": "",
+    "type": "module",
+    "bin": {
+        "create-awesome": "cli.js"
+    }
+}

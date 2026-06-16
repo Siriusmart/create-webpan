@@ -1,0 +1,6 @@
+{
+    "processors": {
+        "**/": "index",
+        "**": "copy"
+    }
+}

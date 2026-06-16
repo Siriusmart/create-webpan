@@ -1,0 +1,17 @@
+{
+  "name": "my-webpan-project",
+  "version": "0.1.0",
+  "description": "A template webpan project.",
+  "license": "CC-BY-NC-4.0",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./node_modules/webpan/dist/commands/entry.js build"
+  },
+  "dependencies": {
+    "webpan": "*",
+    "wp-copy": "*",
+    "wp-index": "*"
+  }
+}
