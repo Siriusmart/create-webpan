@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "my-webpan-project",
   "version": "0.1.0",
   "description": "A template webpan project.",
