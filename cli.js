@@ -71,6 +71,7 @@ if (packageManagers.length === 0) {
     exit(1);
 }
 
+let packageManager = "npm";
 /*
 let packageManager = promptPipeline(
     `package manager [options: ${packageManagers.join(", ")}]: `,
