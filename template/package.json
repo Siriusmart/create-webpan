@@ -7,7 +7,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "build": "node ./node_modules/webpan/dist/commands/entry.js build"
+    "build": "node ./node_modules/webpan/dist/commands/entry.js --preserve-symlinks --preserve-symlinks-main build",
+    "watch": "node ./node_modules/webpan/dist/commands/entry.js --preserve-symlinks --preserve-symlinks-main watch"
   },
   "dependencies": {
     "webpan": "*",
