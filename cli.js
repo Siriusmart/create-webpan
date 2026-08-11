@@ -63,7 +63,7 @@ const projectName = promptPipeline(`project name: `, projectPath);
 const target = path.join(projectName);
 
 // package manager
-let allPackageManagers = ["pnpm", "npm"];
+let allPackageManagers = [/*"pnpm",*/ "npm"];
 let packageManagers = allPackageManagers.filter(commandExistsSync);
 if (packageManagers.length === 0) {
     console.log(`Could not find ${allPackageManagers.join(", ")} on system.`)
@@ -71,14 +71,16 @@ if (packageManagers.length === 0) {
     exit(1);
 }
 
+/*
 let packageManager = promptPipeline(
     `package manager [options: ${packageManagers.join(", ")}]: `,
     packageManagers[0],
     s => s,
     s => packageManagers.includes(s) ? true : "This package manager is not installed on system."
 );
+*/
 
-manifest.system.packageManager = packageManager;
+manifest.system.packageManager = packageManagers[0];
 
 // start setup
 if (existsSync(target)) {
@@ -113,6 +115,7 @@ switch (packageManager) {
         buildCommand = "npm run build"
         cleanBuildCommand = "npm run build -- --clean"
         break;
+        /*
     case "pnpm":
         console.log()
         console.log("Fetching dependencies with pnpm...")
@@ -125,6 +128,7 @@ switch (packageManager) {
         buildCommand = "pnpm run build"
         cleanBuildCommand = "pnpm run build --clean"
         break;
+        */
 }
 
 let targetString = /^[a-z0-9_-]+$/i.test(target) ? target : `'${target}'`
