@@ -99,8 +99,7 @@ cpSync(templateDir, target, { recursive: true });
 renameSync(path.join(target, "gitignore"), path.join(target, ".gitignore"));
 writeFileSync(path.join(target, "wproject.json"), JSON.stringify(manifest, null, 4));
 
-let buildCommand;
-let cleanBuildCommand;
+let buildCommand, watchCommand;
 
 switch (packageManager) {
     case "npm":
@@ -114,7 +113,7 @@ switch (packageManager) {
         spawnSync("npm", ["run", "build", "--", "--clean"], { cwd: target, stdio: 'inherit' });
 
         buildCommand = "npm run build"
-        cleanBuildCommand = "npm run build -- --clean"
+        watchCommand = "npm run watch"
         break;
         /*
     case "pnpm":
@@ -139,8 +138,8 @@ console.log(`Your webpan project in ${target} is ready to go!`)
 console.log()
 console.log("Next steps:")
 console.log(`  1. go to your project with "cd ${targetString}"`)
-console.log(`  2. build your project with "${buildCommand}" (or "${cleanBuildCommand}" for a full rebuild)`)
+console.log(`  2. build your project with "${buildCommand}" (or "${watchCommand}" for a live preview)`)
 console.log(`  3. find the generated files at ./build/dist/`)
 console.log()
-console.log(`Visit https://webpan.siri.ws for documentation.`)
+console.log(`Visit https://webpan.siri.ws/docs for documentation.`)
 console.log()
